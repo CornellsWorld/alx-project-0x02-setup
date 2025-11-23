@@ -2,10 +2,14 @@ import Header from "@/components/layout/Header";
 
 export default function PostsPage() {
   return (
-    <div className="p-10">
+    <div className="min-h-screen p-8">
+      {/* Header component */}
       <Header />
-      <h1 className="text-2xl font-bold">Posts Page</h1>
-      <p>Here you can see all your posts.</p>
+
+      <main className="mt-6">
+        <h1 className="text-3xl font-bold mb-4">Posts Page</h1>
+        <p>This is the posts page. You can display all posts here.</p>
+      </main>
     </div>
   );
 }
