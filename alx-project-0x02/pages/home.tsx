@@ -15,7 +15,6 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
       <Header />
 
       <main className="flex-grow p-8 space-y-6 bg-gradient-to-r from-blue-500 to-purple-600">
@@ -30,14 +29,14 @@ export default function HomePage() {
           </button>
         </div>
 
-        {/* ✅ Your original static cards — NOT deleted */}
+        {/* Original static cards */}
         <div className="space-y-4">
           <Card title="First Card" content="This is the first card content." />
           <Card title="Second Card" content="This is the second card content." />
           <Card title="Third Card" content="More sample content here." />
         </div>
 
-        {/* ✅ Dynamic cards added via PostModal */}
+        {/* Dynamic posts */}
         <div className="space-y-4 mt-4">
           {posts.map((post, index) => (
             <Card key={index} title={post.title} content={post.content} />
@@ -45,12 +44,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* ✅ PostModal */}
-      <PostModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onSubmit={handleAddPost}
-      />
+      <PostModal isOpen={isOpen} onClose={() => setIsOpen(false)} onSubmit={handleAddPost} />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { type PostProps } from "@/interfaces";
 
 interface PostModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (post: { title: string; content: string }) => void;
+  onSubmit: (post: PostProps) => void;
 }
 
 const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onSubmit }) => {
@@ -14,9 +15,7 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     onSubmit({ title, content });
-
     setTitle("");
     setContent("");
     onClose();
@@ -36,7 +35,6 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onSubmit }) => {
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-
           <textarea
             placeholder="Content"
             className="w-full p-2 border rounded mb-3"
@@ -44,7 +42,6 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onSubmit }) => {
             onChange={(e) => setContent(e.target.value)}
             required
           />
-
           <div className="flex justify-end gap-2">
             <button
               type="button"
@@ -53,7 +50,6 @@ const PostModal: React.FC<PostModalProps> = ({ isOpen, onClose, onSubmit }) => {
             >
               Cancel
             </button>
-
             <button
               type="submit"
               className="px-4 py-2 bg-blue-600 text-white rounded"
